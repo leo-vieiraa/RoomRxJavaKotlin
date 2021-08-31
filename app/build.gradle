@@ -26,8 +26,8 @@ android {
 
     defaultConfig {
         applicationId "com.example.android.observability"
-        minSdkVersion build_versions.min_sdk
-        targetSdkVersion build_versions.target_sdk
+        minSdk 23
+        targetSdk 31
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -45,6 +45,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -54,6 +57,7 @@ dependencies {
 
     // Architecture components
     implementation deps.lifecycle.runtime
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt deps.lifecycle.compiler
     implementation deps.room.runtime
     kapt deps.room.compiler
